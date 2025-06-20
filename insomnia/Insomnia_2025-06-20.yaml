@@ -1,0 +1,168 @@
+type: collection.insomnia.rest/5.0
+name: feign-products-api-ddd
+meta:
+  id: wrk_76d4de18020a4f7b971fa0f702f92242
+  created: 1750374758971
+  modified: 1750374758971
+  description: ""
+collection:
+  - url: "{{ _.url }}/ping"
+    name: Ping
+    meta:
+      id: req_10df6d1a8dd74733806123bec5385546
+      created: 1750374758982
+      modified: 1750374758982
+      isPrivate: false
+      description: ""
+      sortKey: -1749645555471
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/products"
+    name: ProductRequestDTO
+    meta:
+      id: req_11807707f4cb497684f33cf8a4b8c033
+      created: 1750374758984
+      modified: 1750429123681
+      isPrivate: false
+      description: ""
+      sortKey: -1749571214534.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "category": "smartphones",
+          "price": 600,
+          "stock": 20
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/order"
+    name: Endpoint de Pedido
+    meta:
+      id: req_41355beb3f084645bb742bf6e1171e1c
+      created: 1750374758986
+      modified: 1750429330790
+      isPrivate: false
+      description: ""
+      sortKey: -1749534044066.25
+    method: POST
+    body:
+      mimeType: application/json
+      text: |+
+        {
+          "productId": 121,
+          "quantity": 2,
+          "category": "smartphones"
+        }
+
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/products"
+    name: Testar erros de validações (400 Bad Request)
+    meta:
+      id: req_115ced8c3ed548b397b9e9e4bb7ad27f
+      created: 1750425982895
+      modified: 1750429390157
+      isPrivate: false
+      description: ""
+      sortKey: -1749524751449.1875
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "category": "smartphones",
+          "price": 100
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/products"
+    name: Testar erro de lógica (404 Not Found)
+    meta:
+      id: req_2e054d5dabe8458d91f2d5871fc953e8
+      created: 1750426859063
+      modified: 1750429435536
+      isPrivate: false
+      description: ""
+      sortKey: -1749520105140.6562
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "category": "smartphones",
+          "price": 1,
+          "stock": 1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a8f0df2b4d32439b8aeff3850b1eb822
+    created: 1750374758979
+    modified: 1750374758979
+environments:
+  name: Base Environment
+  meta:
+    id: env_d710bd1d41394a98bf2deb917d2d206e
+    created: 1750374758976
+    modified: 1750427446002
+    isPrivate: false
+  data:
+    url: http://localhost:8081
