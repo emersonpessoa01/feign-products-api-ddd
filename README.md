@@ -92,7 +92,7 @@ src/main/java
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/emersonpessoa01/feign-products-api-ddd
+   git clone https://git.raroacademy.com.br/emerson.pessoa/feign-products-api-ddd
    ```
 
 2. Navegue até a pasta:
