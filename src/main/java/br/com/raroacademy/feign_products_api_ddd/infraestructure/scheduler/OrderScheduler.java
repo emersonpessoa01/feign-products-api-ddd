@@ -1,5 +1,6 @@
 package br.com.raroacademy.feign_products_api_ddd.infraestructure.scheduler;
 
+import br.com.raroacademy.feign_products_api_ddd.domain.model.Order;
 import br.com.raroacademy.feign_products_api_ddd.infraestructure.repository.OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +20,10 @@ public class OrderScheduler {
     @Scheduled(fixedRate = 10000)
     public void reportTotalOrders() {
         double total = orderRepository.findAll()
-                .stream()
-                .mapToDouble(o -> o.getPrice())
-                .sum();
+            .stream()
+            .mapToDouble(Order::getPrice)
+            .sum();
+
 
         log.info("💰 Total de todos os pedidos: {}", total);
     }
